@@ -1,0 +1,18 @@
+name: flutter-chat-demo
+
+on: [pull_request, push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1.5.0
+
+      - name: Install Dependencies
+        run: flutter packages get
+
+      - name: Build apk
+        run: flutter build apk
+
